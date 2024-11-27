@@ -25,19 +25,19 @@ class Admin: public Usuario
 
         );
 
-    list<Usuario> getUsuarios();
-    list<Estudiante> getEstudiantes();
-    list<Profesor> getProfesores();
-    list<Plan> getPlanes();
-    list<Convalidacion> getConvalidaciones();
-    list<Intercambio> getIntercambios();
+    std::list<Usuario> getUsuarios();
+    std::list<Estudiante> getEstudiantes();
+    std::list<Profesor> getProfesores();
+    std::list<Plan> getPlanes();
+    std::list<Convalidacion> getConvalidaciones();
+    std::list<Intercambio> getIntercambios();
 
     bool modifyUsuario(Usuario usuario);
-    bool createUsuario(email, pssw, curso, tipo);
+    bool createUsuario(std::string email, std::string pssw, int curso, TipoU tipo);
     bool deleteUsuario(Usuario usuario);
 
     bool modifyPlan(Plan plan);
-    bool createPlan(id, duracion, universidad, tipo);
+    bool createPlan(int id, int duracion, std::string universidad, TipoP tipo);
     bool deletePlan(Plan plan);
 
 };

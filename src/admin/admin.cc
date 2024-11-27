@@ -1,12 +1,13 @@
 #include <string>
 #include <list>
 #include <fstream>
-#include "Admin.h"
+#include <sstream>
+#include "admin.h"
 
-list<Usuario> Admin::getUsuarios()
+std::list<Usuario> Admin::getUsuarios()
 {
 
-    list<Usuario> u;
+    std::list<Usuario> u;
 
     std::ifstream file("usuarios.txt");
     std::string dato;
@@ -32,12 +33,12 @@ list<Usuario> Admin::getUsuarios()
 
 }
 
-list<Estudiante> Admin::getEstudiantes()
+std::list<Estudiante> Admin::getEstudiantes()
 {
 
-    list<Estudiante> e;
+    std::list<Estudiante> e;
 
-    std:ifstream file("usuarios.txt");
+    std::ifstream file("usuarios.txt");
     std::string dato;
 
     while(std::getline(file, dato))
@@ -66,10 +67,10 @@ list<Estudiante> Admin::getEstudiantes()
 
 }
 
-list<Profesor> Admin::getProfesores()
+std::list<Profesor> Admin::getProfesores()
 {
 
-    list<Profesor> p;
+    std::list<Profesor> p;
 
     std::ifstream file("usuarios.txt");
     std::string dato;
@@ -100,10 +101,10 @@ list<Profesor> Admin::getProfesores()
 
 }
 
-list<Plan> Admin::getPlanes()
+std::list<Plan> Admin::getPlanes()
 {
 
-    list<Plan> p;
+    std::list<Plan> p;
 
     std::ifstream file("planes.txt");
     std::string dato;
@@ -129,10 +130,10 @@ list<Plan> Admin::getPlanes()
 
 }
 
-list<Convalidacion> Admin::getConvalidaciones()
+std::list<Convalidacion> Admin::getConvalidaciones()
 {
 
-    list<Convalidacion> c;
+    std::list<Convalidacion> c;
 
     std::ifstream file("planes.txt");
     std::string dato;
@@ -163,10 +164,10 @@ list<Convalidacion> Admin::getConvalidaciones()
 
 }
 
-list<Intercambio> Admin::getIntercambios()
+std::list<Intercambio> Admin::getIntercambios()
 {
 
-    list<Intercambio> i;
+    std::list<Intercambio> i;
 
     std::ifstream file("planes.txt");
     std::string dato;
@@ -222,7 +223,7 @@ bool Admin::modifyUsuario(Usuario usuario)
 
 }
 
-bool Admin::createUsuario(email, pssw, curso, tipo)
+bool Admin::createUsuario(std::string email, std::string pssw, int curso, TipoU tipo)
 {
 
     Usuario u(email, pssw, curso, tipo);
@@ -235,7 +236,7 @@ bool Admin::createUsuario(email, pssw, curso, tipo)
         file << u.getEmail() << std::endl;
         file << u.getPssw() << std::endl;
         file << u.getCurso() << std::endl;
-        file << u.getTipo() << std::endl;
+        file << static_cast<int>(u.getTipo()) << std::endl;
         file << std::endl;
 
         file.close();
@@ -253,7 +254,7 @@ bool Admin::deleteUsuario(Usuario usuario)
 
     std::list<Usuario> u = getUsuarios();
 
-    u.remove_if([&usuario](const Usuario& u) {return u.getEmail() == usuario.getEmail();});
+    u.remove_if([&usuario](Usuario& u) {return u.getEmail() == usuario.getEmail();});
 
     std::ofstream file("usuarios.txt");
 
@@ -266,7 +267,7 @@ bool Admin::deleteUsuario(Usuario usuario)
             file << it->getEmail() << std::endl;
             file << it->getPssw() << std::endl;
             file << it->getCurso() << std::endl;
-            file << it->getTipo() << std::endl;
+            file << static_cast<int>(it->getTipo()) << std::endl;
             file << std::endl;
 
         }
@@ -306,7 +307,7 @@ bool Admin::modifyPlan(Plan plan)
 
 }
 
-bool Admin::createPlan(id, duracion, universidad, tipo)
+bool Admin::createPlan(int id, int duracion, std::string universidad, TipoP tipo)
 {
 
     Plan p(id, duracion, universidad, tipo);
@@ -319,7 +320,7 @@ bool Admin::createPlan(id, duracion, universidad, tipo)
         file << p.getId() << std::endl;
         file << p.getDuracion() << std::endl;
         file << p.getUniversidad() << std::endl;
-        file << p.getTipo() << std::endl;
+        file << static_cast<int>(p.getTipo()) << std::endl;
         file << std::endl;
 
         file.close();
@@ -337,7 +338,7 @@ bool Admin::deletePlan(Plan plan)
 
     std::list<Plan> p = getPlanes();
 
-    p.remove_if([&plan](const Plan& p) {return p.getId() == plan.getId();});
+    p.remove_if([&plan](Plan& p) {return p.getId() == plan.getId();});
 
     std::ofstream file("planes.txt");
 
@@ -350,7 +351,7 @@ bool Admin::deletePlan(Plan plan)
             file << it->getId() << std::endl;
             file << it->getDuracion() << std::endl;
             file << it->getUniversidad() << std::endl;
-            file << it->getTipo() << std::endl;
+            file << static_cast<int>(it->getTipo()) << std::endl;
             file << std::endl;
 
         }
