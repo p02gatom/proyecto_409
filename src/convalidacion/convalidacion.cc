@@ -13,9 +13,9 @@ Convalidacion::Convalidacion(int id, int duracion, std::string universidad, Tipo
 std::list<Convalidacion> Convalidacion::filterByCareer(Grado::Grado grado) 
 {
 
-    std::list<Convalidacion> c;
+    std::list<Convalidacion> convalidaciones;
 
-    for (Convalidacion convalidacion : c) 
+    for (Convalidacion convalidacion : convalidaciones) 
     {
 
         if (convalidacion.getGrado() == grado) 
@@ -27,6 +27,6 @@ std::list<Convalidacion> Convalidacion::filterByCareer(Grado::Grado grado)
 
     }
 
-    return c;
+    return convalidaciones;
 
 }
