@@ -16,10 +16,10 @@ class Grado
         Grado
         (
 
-            int codigo,
-            int creditos,
-            std::string nombre,
-            std::string facultad
+            int codigo = NULL,
+            int creditos = NULL,
+            std::string nombre = "",
+            std::string facultad = ""
 
         );
 

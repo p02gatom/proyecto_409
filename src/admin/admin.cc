@@ -149,7 +149,7 @@ std::list<Convalidacion> Admin::getConvalidaciones()
         std::getline(file, dato);
         TipoP tipo = static_cast<TipoP>(std::stoi(dato));
 
-        if(tipo == TipoP::Convalidacion)
+        if(tipo == TipoP::convalidacion)
         {
 
             Convalidacion convalidacion(id, duracion, universidad, tipo);
@@ -183,7 +183,7 @@ std::list<Intercambio> Admin::getIntercambios()
         std::getline(file, dato);
         TipoP tipo = static_cast<TipoP>(std::stoi(dato));
 
-        if(tipo == TipoP::Intercambio)
+        if(tipo == TipoP::intercambio)
         {
 
             Intercambio intercambio(id, duracion, universidad, tipo);
