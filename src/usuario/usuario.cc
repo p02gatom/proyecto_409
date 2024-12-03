@@ -1,6 +1,8 @@
 #include <string>
 #include "usuario.h"
 
+//prueba
+
 Usuario::Usuario(std::string email, std::string pssw, int curso, TipoU tipo)
 {
 
