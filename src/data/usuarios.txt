@@ -2,13 +2,15 @@ p02gatom@uco.es
 contraseña
 3
 Estudiante
-
 i22espid@uco.es
 password
 2
 Estudiante
-
 in1macal@uco.es
 ingSoftw
 10
 Profesor
+admin@uco.es
+admin
+0
+Admin

@@ -4,12 +4,14 @@
 #include <sstream>
 #include "admin.h"
 
+Admin::Admin(std::string email, std::string pssw, int curso, TipoU tipo): Usuario(email, pssw, curso, tipo) {}
+
 std::list<Usuario> Admin::getUsuarios()
 {
 
     std::list<Usuario> u;
 
-    std::ifstream file("usuarios.txt");
+    std::ifstream file("data/usuarios.txt");
     std::string dato;
 
     while(std::getline(file, dato))
@@ -17,11 +19,27 @@ std::list<Usuario> Admin::getUsuarios()
 
         std::string email = dato;
         std::getline(file, dato);
+        
         std::string pssw = dato;
         std::getline(file, dato);
+        
         int curso = std::stoi(dato);
         std::getline(file, dato);
-        TipoU tipo = static_cast<TipoU>(std::stoi(dato));
+        
+        TipoU tipo = TipoU::Estudiante;
+
+        if(dato == "Admin")
+        {
+
+            tipo = TipoU::Admin;
+
+        }
+        else if(dato == "Profesor")
+        {
+
+            tipo = TipoU::Profesor;
+
+        }
 
         Usuario usuario(email, pssw, curso, tipo);
 
@@ -38,7 +56,7 @@ std::list<Estudiante> Admin::getEstudiantes()
 
     std::list<Estudiante> e;
 
-    std::ifstream file("usuarios.txt");
+    std::ifstream file("data/usuarios.txt");
     std::string dato;
 
     while(std::getline(file, dato))
@@ -46,11 +64,21 @@ std::list<Estudiante> Admin::getEstudiantes()
 
         std::string email = dato;
         std::getline(file, dato);
+
         std::string pssw = dato;
         std::getline(file, dato);
+
         int curso = std::stoi(dato);
         std::getline(file, dato);
-        TipoU tipo = static_cast<TipoU>(std::stoi(dato));
+        
+        TipoU tipo;
+
+        if(dato == "Estudiante")
+        {
+
+            tipo = TipoU::Estudiante;
+
+        }
 
         if(tipo == TipoU::Estudiante)
         {
@@ -72,7 +100,7 @@ std::list<Profesor> Admin::getProfesores()
 
     std::list<Profesor> p;
 
-    std::ifstream file("usuarios.txt");
+    std::ifstream file("data/usuarios.txt");
     std::string dato;
 
     while(std::getline(file, dato))
@@ -80,11 +108,21 @@ std::list<Profesor> Admin::getProfesores()
 
         std::string email = dato;
         std::getline(file, dato);
+
         std::string pssw = dato;
         std::getline(file, dato);
+
         int curso = std::stoi(dato);
         std::getline(file, dato);
-        TipoU tipo = static_cast<TipoU>(std::stoi(dato));
+
+        TipoU tipo;
+
+        if(dato == "Profesor")
+        {
+
+            tipo = TipoU::Profesor;
+
+        }
 
         if(tipo == TipoU::Profesor)
         {
@@ -106,7 +144,7 @@ std::list<Plan> Admin::getPlanes()
 
     std::list<Plan> p;
 
-    std::ifstream file("planes.txt");
+    std::ifstream file("data/planes.txt");
     std::string dato;
 
     while(std::getline(file, dato))
@@ -114,11 +152,21 @@ std::list<Plan> Admin::getPlanes()
 
         int id = std::stoi(dato);
         std::getline(file, dato);
+
         int duracion = std::stoi(dato);
         std::getline(file, dato);
+
         std::string universidad = dato;
         std::getline(file, dato);
-        TipoP tipo = static_cast<TipoP>(std::stoi(dato));
+
+        TipoP tipo = TipoP::convalidacion;
+
+        if(dato == "Intercambio")
+        {
+
+            tipo = TipoP::intercambio;
+
+        }
 
         Plan plan(id, duracion, universidad, tipo);
 
@@ -135,7 +183,7 @@ std::list<Convalidacion> Admin::getConvalidaciones()
 
     std::list<Convalidacion> c;
 
-    std::ifstream file("planes.txt");
+    std::ifstream file("data/planes.txt");
     std::string dato;
 
     while(std::getline(file, dato))
@@ -143,11 +191,21 @@ std::list<Convalidacion> Admin::getConvalidaciones()
 
         int id = std::stoi(dato);
         std::getline(file, dato);
+
         int duracion = std::stoi(dato);
         std::getline(file, dato);
+
         std::string universidad = dato;
         std::getline(file, dato);
-        TipoP tipo = static_cast<TipoP>(std::stoi(dato));
+
+        TipoP tipo;
+
+        if(dato == "Convalidacion")
+        {
+
+            tipo = TipoP::convalidacion;
+
+        }
 
         if(tipo == TipoP::convalidacion)
         {
@@ -169,7 +227,7 @@ std::list<Intercambio> Admin::getIntercambios()
 
     std::list<Intercambio> i;
 
-    std::ifstream file("planes.txt");
+    std::ifstream file("data/planes.txt");
     std::string dato;
 
     while(std::getline(file, dato))
@@ -177,11 +235,21 @@ std::list<Intercambio> Admin::getIntercambios()
 
         int id = std::stoi(dato);
         std::getline(file, dato);
+
         int duracion = std::stoi(dato);
         std::getline(file, dato);
+
         std::string universidad = dato;
         std::getline(file, dato);
-        TipoP tipo = static_cast<TipoP>(std::stoi(dato));
+
+        TipoP tipo;
+
+        if(dato == "Intercambio")
+        {
+
+            tipo = TipoP::intercambio;
+
+        }
 
         if(tipo == TipoP::intercambio)
         {
@@ -228,7 +296,7 @@ bool Admin::createUsuario(std::string email, std::string pssw, int curso, TipoU 
 
     Usuario u(email, pssw, curso, tipo);
 
-    std::ofstream file("usuarios.txt", std::ios::app);
+    std::ofstream file("data/usuarios.txt", std::ios::app);
 
     if(file.is_open())
     {
@@ -256,7 +324,7 @@ bool Admin::deleteUsuario(Usuario usuario)
 
     u.remove_if([&usuario](Usuario& u) {return u.getEmail() == usuario.getEmail();});
 
-    std::ofstream file("usuarios.txt");
+    std::ofstream file("data/usuarios.txt");
 
     if(file.is_open())
     {
@@ -312,7 +380,7 @@ bool Admin::createPlan(int id, int duracion, std::string universidad, TipoP tipo
 
     Plan p(id, duracion, universidad, tipo);
 
-    std::ofstream file("planes.txt", std::ios::app);
+    std::ofstream file("data/planes.txt", std::ios::app);
 
     if(file.is_open())
     {
@@ -340,7 +408,7 @@ bool Admin::deletePlan(Plan plan)
 
     p.remove_if([&plan](Plan& p) {return p.getId() == plan.getId();});
 
-    std::ofstream file("planes.txt");
+    std::ofstream file("data/planes.txt");
 
     if(file.is_open())
     {

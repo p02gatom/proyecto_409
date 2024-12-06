@@ -26,10 +26,10 @@ class Usuario
         Usuario
         (
 
-            std::string email,
-            std::string pssw,
-            int curso,
-            TipoU tipo
+            std::string email = "",
+            std::string pssw = "",
+            int curso = 0,
+            TipoU tipo = TipoU::Estudiante
 
         );
 
