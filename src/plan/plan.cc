@@ -11,4 +11,4 @@ Plan::Plan(int id, int duracion, std::string universidad, TipoP tipo)
 
 }
 
-bool Plan::isRegistered(Usuario usuario) {}
+bool Plan::isRegistered(Usuario usuario) {return false;}

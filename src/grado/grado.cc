@@ -10,3 +10,10 @@ Grado::Grado(int codigo, int creditos, std::string nombre, std::string facultad)
     facultad_ = facultad;
 
 }
+
+bool Grado::operator == (Grado &grado) 
+{
+
+    return codigo_ == grado.getCodigo();
+
+}

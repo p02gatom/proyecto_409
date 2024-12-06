@@ -16,8 +16,8 @@ class Grado
         Grado
         (
 
-            int codigo = NULL,
-            int creditos = NULL,
+            int codigo = 0,
+            int creditos = 0,
             std::string nombre = "",
             std::string facultad = ""
 
@@ -32,6 +32,8 @@ class Grado
     inline void setCreditos(int creditos) {creditos_ = creditos;}
     inline void setNombre(std::string nombre) {nombre_ = nombre;}
     inline void setFacultad(std::string facultad) {facultad_ = facultad;}
+
+    bool operator == (Grado &grado);
 
 };
 
