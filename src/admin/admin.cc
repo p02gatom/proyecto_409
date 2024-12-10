@@ -189,6 +189,9 @@ std::list<Convalidacion> Admin::getConvalidaciones()
     while(std::getline(file, dato))
     {
 
+        std::string grado = dato;
+        std::getline(file, dato);
+
         int id = std::stoi(dato);
         std::getline(file, dato);
 
@@ -207,10 +210,17 @@ std::list<Convalidacion> Admin::getConvalidaciones()
 
         }
 
+        else
+        {
+
+            continue;
+
+        }
+
         if(tipo == TipoP::convalidacion)
         {
 
-            Convalidacion convalidacion(id, duracion, universidad, tipo);
+            Convalidacion convalidacion(grado, id, duracion, universidad, tipo);
 
             c.push_back(convalidacion);
 
@@ -233,6 +243,9 @@ std::list<Intercambio> Admin::getIntercambios()
     while(std::getline(file, dato))
     {
 
+        std::string area = dato;
+        std::getline(file, dato);
+
         int id = std::stoi(dato);
         std::getline(file, dato);
 
@@ -254,7 +267,7 @@ std::list<Intercambio> Admin::getIntercambios()
         if(tipo == TipoP::intercambio)
         {
 
-            Intercambio intercambio(id, duracion, universidad, tipo);
+            Intercambio intercambio(area, id, duracion, universidad, tipo);
 
             i.push_back(intercambio);
 

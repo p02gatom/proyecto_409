@@ -13,29 +13,30 @@ class Convalidacion: public Plan
     private:
 
         std::list<Asignatura> asignaturas_;
-        Grado grado_;
+        std::string grado_;
 
     public:
 
         Convalidacion
         (
 
+            std::string grado,
             int id,
             int duracion,
             std::string universidad,
             TipoP tipo = TipoP::convalidacion,
-            std::list<Asignatura> asignaturas = {},
-            Grado grado = Grado()
+            std::list<Asignatura> asignaturas = {}
+            
 
         );
 
         inline std::list<Asignatura> getAsignaturas() {return asignaturas_;}
-        inline Grado getGrado() {return grado_;}
+        inline std::string getGrado() {return grado_;}
 
         inline void setAsignaturas(std::list<Asignatura> asignaturas) {asignaturas_ = asignaturas;}
-        inline void setGrado(Grado grado) {grado_ = grado;}
+        inline void setGrado(std::string grado) {grado_ = grado;}
 
-        std::list<Convalidacion> filterByCareer(Grado grado);
+        std::list<Convalidacion> filterByCareer(std::list<Convalidacion> convalidaciones, std::string grado);
 
 };  
 

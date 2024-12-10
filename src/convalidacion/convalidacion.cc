@@ -3,7 +3,7 @@
 #include "convalidacion.h"
 
 
-Convalidacion::Convalidacion(int id, int duracion, std::string universidad, TipoP tipo, std::list<Asignatura> asignaturas, Grado grado): Plan(id, duracion, universidad, tipo) 
+Convalidacion::Convalidacion(std::string grado, int id, int duracion, std::string universidad, TipoP tipo, std::list<Asignatura> asignaturas): Plan(id, duracion, universidad, tipo) 
 {
 
     asignaturas_ = asignaturas;
@@ -11,10 +11,10 @@ Convalidacion::Convalidacion(int id, int duracion, std::string universidad, Tipo
 
 }
 
-std::list<Convalidacion> Convalidacion::filterByCareer(Grado grado) 
+std::list<Convalidacion> Convalidacion::filterByCareer(std::list<Convalidacion> convalidaciones, std::string grado) 
 {
 
-    std::list<Convalidacion> convalidaciones;
+    std::list<Convalidacion> filtradas;
 
     for (Convalidacion convalidacion : convalidaciones) 
     {
@@ -22,12 +22,12 @@ std::list<Convalidacion> Convalidacion::filterByCareer(Grado grado)
         if (convalidacion.getGrado() == grado) 
         {
 
-            convalidaciones.push_back(convalidacion);
+            filtradas.push_back(convalidacion);
 
         }
 
     }
 
-    return convalidaciones;
+    return filtradas;
 
 }
