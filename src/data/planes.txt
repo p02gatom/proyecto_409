@@ -1,19 +1,24 @@
+Ingerniería Informática
 1234
 6
 USC
 Convalidacion
+Derecho y ADE
 2222
 12
 UMA
 Intercambio
+Psicología
 9933
 4
 UGR
 Convalidacion
+Medicina
 3333
 6
 UMA
 Convalidacion
+Escuela Politécnica
 5555
 6
 Loyola

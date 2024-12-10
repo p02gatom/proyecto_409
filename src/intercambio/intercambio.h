@@ -8,11 +8,16 @@
 class Intercambio: public Plan
 {
 
+    private:
+
+        std::string area_;
+
     public:
 
         Intercambio
         (
 
+            std::string area,
             int id,
             int duracion,
             std::string universidad,
