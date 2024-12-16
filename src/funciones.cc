@@ -107,3 +107,19 @@ void menuEstudiante()
     }
 
 }
+
+void menuAdmin()
+{
+
+    std::cout << "No hay funciones de momento. Disculpe las molestias." << std::endl;
+    return;
+
+}
+
+void menuProfesor()
+{
+
+    std::cout << "No hay funciones de momento. Disculpe las molestias." << std::endl;
+    return;
+
+}
