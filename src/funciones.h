@@ -16,9 +16,9 @@
 
 extern Admin admin;
 
-void menuEstudiante();
-void consultaPlanes();
+void menuEstudiante(const Usuario& u);
+void consultaPlanes(const Usuario& u);
 void menuAdmin();
 void menuProfesor();
-
+bool inscripcion(int id, Usuario u);
 #endif

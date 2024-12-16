@@ -42,7 +42,7 @@ int main()
                         case TipoU::Estudiante:
 
                             std::cout << "\nBienvenido estudiante." << std::endl;
-                            menuEstudiante();
+                            menuEstudiante(user);
                             break;
 
                         case TipoU::Profesor:
