@@ -36,6 +36,7 @@ int main()
                         case TipoU::Admin:
 
                             std::cout << "\nBienvenido administrador." << std::endl;
+                            menuAdmin();
                             break;
 
                         case TipoU::Estudiante:
@@ -47,6 +48,7 @@ int main()
                         case TipoU::Profesor:
                             
                             std::cout << "\nBienvenido profesor." << std::endl;
+                            menuProfesor();
                             break;
                             
                         default:

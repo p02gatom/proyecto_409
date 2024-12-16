@@ -18,5 +18,7 @@ extern Admin admin;
 
 void menuEstudiante();
 void consultaPlanes();
+void menuAdmin();
+void menuProfesor();
 
 #endif
