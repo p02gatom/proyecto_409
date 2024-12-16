@@ -318,7 +318,6 @@ bool Admin::createUsuario(std::string email, std::string pssw, int curso, TipoU 
         file << u.getPssw() << std::endl;
         file << u.getCurso() << std::endl;
         file << static_cast<int>(u.getTipo()) << std::endl;
-        file << std::endl;
 
         file.close();
 
@@ -349,7 +348,6 @@ bool Admin::deleteUsuario(Usuario usuario)
             file << it->getPssw() << std::endl;
             file << it->getCurso() << std::endl;
             file << static_cast<int>(it->getTipo()) << std::endl;
-            file << std::endl;
 
         }
 
