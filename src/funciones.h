@@ -21,4 +21,6 @@ void consultaPlanes(const Usuario& u);
 void menuAdmin();
 void menuProfesor();
 bool inscripcion(int id, Usuario u);
+bool estaInscrito(Usuario u);
+
 #endif

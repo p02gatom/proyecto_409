@@ -176,6 +176,14 @@ void menuProfesor()
 bool inscripcion(int id, Usuario u)
 {
 
+    if(estaInscrito(u))
+    {
+
+        std::cout << "Ya está inscrito en un plan de convalidación." << std::endl;
+        return false;
+
+    }
+
     std::list<Convalidacion> planes = admin.getConvalidaciones();
 
     for(auto& p : planes)
@@ -204,5 +212,33 @@ bool inscripcion(int id, Usuario u)
     }
 
     return false;
+
+}
+
+bool estaInscrito(Usuario u)
+{
+
+    std::ifstream file("data/inscripciones.txt");
+
+    if(file.is_open())
+    {
+
+        std::string line;
+
+        while(std::getline(file, line))
+        {
+
+            if(line == u.getEmail())
+            {
+
+                return true;
+
+            }
+
+        }
+
+    }
+
+    return false;   
 
 }

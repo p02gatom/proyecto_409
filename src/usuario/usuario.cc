@@ -57,6 +57,3 @@ bool Usuario::signIn(std::string email, std::string pssw)
     std::cerr << "Email o contraseña incorrectos." << std::endl;
     return false;
 }
-
-
-void Usuario::seeInscrip(){}
