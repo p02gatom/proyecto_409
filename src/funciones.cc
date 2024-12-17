@@ -41,11 +41,31 @@ void consultaPlanes(const Usuario& u)
         Convalidacion c("", 0, 0, "", TipoP::convalidacion);
         std::list<Convalidacion> planesFiltrados = c.filterByCareer(admin.getConvalidaciones(), grado);
 
+        //std::cout << "Planes filtrados: " << planesFiltrados.size() << std::endl;
+
         if(planesFiltrados.empty())
         {
 
             std::cout << "No se han encontrado planes de convalidación para el grado introducido." << std::endl;
-            return;
+            std::cout << "¿Desea intenetarlo de nuevo? (s/n)" << std::endl;
+            std::cin >> respuesta;
+            std::cout << std::endl;
+
+            if(respuesta == "s" || respuesta == "S")
+            {
+
+                consultaPlanes(u);
+                return;
+
+            }
+
+            else
+            {
+
+                std::cout << "Saliendo del programa.\n" << std::endl;
+                exit(EXIT_SUCCESS);
+
+            }
 
         }
 
@@ -57,6 +77,41 @@ void consultaPlanes(const Usuario& u)
             std::cout << "Duración: " << p.getDuracion() << std::endl;
             std::cout << "Universidad: " << p.getUniversidad() << std::endl;
             std::cout << std::endl;
+
+        }
+
+    }
+
+    std::cout << "Desea consultar las asignaturas de algún plan? (s/n)" << std::endl;
+    std::cin >> respuesta;
+    std::cout << std::endl;
+
+    if(respuesta == "s" || respuesta == "S")
+    {
+
+        std::cout << "Introduzca el ID del plan del que desea consultar las asignaturas: " << std::endl;
+        int id;
+        std::cin >> id;
+        std::cout << std::endl;
+
+        for(auto& p : planes)
+        {
+
+            if(p.getId() == id)
+            {
+
+                std::list<std::string> asignaturas = p.getAsignaturas();
+
+                for(auto& a : asignaturas)
+                {
+
+                    std::cout << a << std::endl;
+
+                }
+
+                std::cout << std::endl;
+
+            }
 
         }
 
@@ -137,6 +192,11 @@ void menuEstudiante(const Usuario& u)
     case 2:
 
         std::cout << "Perfil del estudiante." << std::endl;
+        std::cout << "Funcionalidad no disponible." << std::endl;
+        std::cout << std::endl;
+
+        menuEstudiante(u);
+
         break;
 
     case 3: 
