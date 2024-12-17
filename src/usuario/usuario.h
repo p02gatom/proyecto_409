@@ -45,8 +45,6 @@ class Usuario
 
     bool signIn(std::string email, std::string pssw);
 
-    void seeInscrip();
-
 };
 
 #endif 
