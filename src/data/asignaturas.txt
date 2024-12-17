@@ -1,0 +1,36 @@
+1234
+Ingeniería del Software
+Base de Datos
+Arquitectura de Computadores
+Programación Orientada a Objetos
+Sistemas Operativos
+9933
+Condicionamiento, Motivación y Emoción
+Psicología de la Interacción Social y de los Grupos
+Psicología del Desarrollo Socioafectivo y de la Personalidad
+Psicopatología del Adulto
+Técnicas de Análisis en la Investigación Psicológica
+3333
+Bioquímica
+Anatomía Humana
+Biología
+Fisiología
+Morfología, Estructura y Función del Cuerpo Humano
+4321
+Microbiología e Inmunología
+Fisiología Animal
+Neuroanatomía y Anatomía Topográfica
+Mejora Genética para la Cría y Salud Animal
+Parasitología
+1111
+Bosques
+Prevención de Incendios
+Fauna y Flora
+Climas y Biomas
+Plagas
+7777
+Piernas
+Brazos
+Dolores de Espalda
+Fisioterapia Deportiva
+Fisioterapia Moderna

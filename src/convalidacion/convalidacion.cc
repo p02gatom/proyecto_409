@@ -1,5 +1,7 @@
 #include <string>
 #include <list>
+#include <fstream>
+#include <sstream>
 #include "convalidacion.h"
 
 
@@ -29,5 +31,51 @@ std::list<Convalidacion> Convalidacion::filterByCareer(std::list<Convalidacion> 
     }
 
     return filtradas;
+
+}
+
+std::list<std::string>  Convalidacion::getAsignaturas()
+{
+
+    std::list<std::string> asignaturas;
+    std::ifstream archivo("data/asignaturas.txt");
+    std::string dato;
+    bool encontrado = false;
+
+    if(archivo.is_open())
+    {
+
+        while(getline(archivo, dato))
+        {
+
+            if(dato == std::to_string(this->getId()))
+            {
+
+                encontrado = true;
+                continue;
+
+            }
+
+            if(encontrado && !dato.empty() && isdigit(dato[0]))
+            {
+
+                break;
+
+            }
+
+            if(encontrado)
+            {
+
+                asignaturas.push_back(dato);
+
+            }
+
+        }
+
+        archivo.close();
+
+    }
+
+    return asignaturas;
 
 }

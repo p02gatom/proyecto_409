@@ -1,4 +1,4 @@
-Ingerniería Informática
+Ingeniería Informática
 1234
 6
 USC
@@ -23,3 +23,23 @@ Escuela Politécnica
 6
 Loyola
 Intercambio
+Veterinaria
+4321
+9
+UJA
+Convalidacion
+Estadística
+4444
+9
+UCM
+Intercambio
+Ingeniería Forestal
+1111
+4
+UPO
+Convalidacion
+Fisioterapia
+7777
+6
+UGR
+Convalidacion

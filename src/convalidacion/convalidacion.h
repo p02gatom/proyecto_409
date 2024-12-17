@@ -30,13 +30,13 @@ class Convalidacion: public Plan
 
         );
 
-        inline std::list<Asignatura> getAsignaturas() {return asignaturas_;}
         inline std::string getGrado() {return grado_;}
 
-        inline void setAsignaturas(std::list<Asignatura> asignaturas) {asignaturas_ = asignaturas;}
         inline void setGrado(std::string grado) {grado_ = grado;}
 
         std::list<Convalidacion> filterByCareer(std::list<Convalidacion> convalidaciones, std::string grado);
+
+        std::list<std::string> getAsignaturas();
 
 };  
 
