@@ -173,7 +173,8 @@ void menuEstudiante(const Usuario& u)
 
     std::cout << "\t1. Ver planes de convalidación." << std::endl;
     std::cout << "\t2. Ver perfil." << std::endl;
-    std::cout << "\t3. Cerrar sesión." << std::endl;
+    std::cout << "\t3. Generar certificadi." << std::endl;
+    std::cout << "\t4. Cerrar sesión." << std::endl;
     std::cout << "\tPresione otra tecla para salir." << std::endl;
     std::cout << std::endl;
 
@@ -199,7 +200,36 @@ void menuEstudiante(const Usuario& u)
 
         break;
 
-    case 3: 
+    case 3:
+    {
+
+        Usuario us = u;
+
+        std::string nombreCert = "certificado" + us.getEmail() + ".txt";
+        std::ofstream cert(nombreCert);
+
+        if(!cert)
+        {
+
+            std::cerr << "Error al crear el certificado." << std::endl;
+            exit(0);
+
+        }
+
+        cert << "=======================================\n";
+        cert << "      CERTIFICADO DE ASISTENCIA        \n";
+        cert << "=======================================\n";
+        cert << "Se certifica que el usuario " << us.getEmail() << " ha sido acepatado en el plan de convalidación correspondiente.";
+        cert.close();
+
+        std::cout << "Certificado '" << nombreCert <<"' generado con exito.\n" << std::endl;
+
+        menuEstudiante(u);
+
+        break;
+    }   
+
+    case 4: 
 
         std::cout << "Sesión cerrada.\n" << std::endl;
         return;
